@@ -1,0 +1,135 @@
+<!--
+# Visualizer Tempaltes
+-->
+<script id="personCard" type="text/uduvudu-template">
+  <div class="well">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="<%-personCard.img_url.u%>" alt="Profile photo" class="img-rounded img-responsive">
+      </div>
+      <div class="col-md-8">
+        <% if (personCard.website.u) { %>
+          <p>
+            <i class="glyphicon glyphicon-link">&nbsp;</i>
+            <a href="<%-personCard.website.u%>">
+              <%-personCard.website.u%>
+            </a>
+          </p>
+        <% } if (personCard.email.u) { %>
+          <p>
+            <i class="glyphicon glyphicon-envelope">&nbsp;</i>
+            <a href="<%-personCard.email.u%>">
+              <% print(personCard.email.u.replace('mailto:','')) %>
+            </a>
+          </p>
+        <% } if (personCard.phone.u) { %>
+          <p>
+            <i class="glyphicon glyphicon-phone-alt">&nbsp;</i>
+            <a href="<%-personCard.phone.u%>">
+              <% print(personCard.phone.u.replace('tel:','')) %>
+            </a>
+          </p>
+        <% } if (personCard.address.u) { %>
+          <p>
+            <i class="glyphicon glyphicon-map-marker">&nbsp;</i>
+              <%=personCard.address.u%>
+            </p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="title" type="text/uduvudu-template">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="date">
+        <%- title.u %>
+      </h1>
+    </div>
+  </div>
+</script>
+
+<script id="markdown" type="text/uduvudu-template">
+  <div class="well">
+    <div class="row">
+      <div class="col-lg-12 user-content">
+        <% print(marked(markdown.u)) %>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="projectLink" type="text/uduvudu-template">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Projects</h3>
+  </div>
+  <div class="panel-body">
+    <% _.each(projectLink, function(i){ print(template(i.project))}); %>
+  </div>
+</div>
+</script>
+
+<script id="project" type="text/uduvudu-template">
+<div class="media">
+  <div class="media-left">
+    <a href="<%-project.website.u%>" target="_blank">
+      <img class="media-object" style="max-width: 220px;" src="<%-project.logo_url.u%>">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%-project.title.u%></h4>
+    <p>
+      <%-project.abstract.u%>
+      <a href="<%-project.website.u%>" target="_blank">
+        Read more about <%-project.title.u%>.
+      </a>
+    </p>
+  </div>
+</div>
+</script>
+
+<script id="img" type="text/uduvudu-template">
+  <img src="<%-img_url.u%>" class="img-rounded img-responsive">
+</script>
+
+<!-- container for literals -->
+<script id="literals" type="text/uduvudu-template">
+<div class="panel-group" role="tablist">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+      <h4 class="panel-title"> <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1"> Other Literals</a> </h4>
+    </div>
+    <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
+      <ul class="list-group">
+        <% _.each(literals, function(e) {print('<li class="list-group-item">'+template(e.literal))+'</li>'}); %>
+      </ul>
+      <div class="panel-footer"></div>
+    </div>
+  </div>
+</div>
+</script>
+
+<!-- literal -->
+<script id="literal" type="text/uduvudu-template">
+    <b><%-literal.name.u%></b>: <%-literal.text.u%>
+</script>
+
+<!-- container for literals -->
+<script id="unknowns" type="text/uduvudu-template">
+    <div style="clear: both;">
+        <% /*_.each(unknowns, function(e) {print(template(e.unknown))});*/ %>
+    </div>
+</script>
+
+<!-- unknown -->
+<script id="unknown" type="text/uduvudu-template">
+  <div style=" width: 140px; height: 140px; float: left; overflow: hidden;">
+      <small><p><%=unknown.subject.u%><br />&#9608;<br /><%=unknown.predicate.u%><br />&#9608;<br /><%=unknown.object.u%></p></small>
+  </div>
+</script>
+
+<!-- void -->
+<script id="void" type="text/uduvudu-template">
+</script>

@@ -1,8 +1,0 @@
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> <http://purl.org/dc/elements/1.1/title> "Gods of War"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> <http://purl.org/ontology/mo/musicbrainz_guid> "73ce263f-96fb-48dd-b18d-7fe677626e0d"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Release> .
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> <http://purl.org/NET/c4dm/event.owl#factor> <http://musicbrainz.org/signal-group/43b2602a-302b-3dde-ab57-3e2188bfd81b#_> .
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> <http://purl.org/ontology/mo/record> <http://musicbrainz.org/record/1776446#_> .
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> <http://purl.org/ontology/mo/label> <http://musicbrainz.org/label/2920af90-bd99-467a-b949-fc085673496d#_> .
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> <http://purl.org/ontology/mo/label> <http://musicbrainz.org/label/2920af90-bd99-467a-b949-fc085673496d#_> .
-<http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#89a675c2-3e37-3518-b83c-418bad59a85a> <http://purl.org/ontology/mo/release> <http://musicbrainz.org/release/73ce263f-96fb-48dd-b18d-7fe677626e0d#_> .

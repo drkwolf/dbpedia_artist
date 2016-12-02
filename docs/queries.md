@@ -82,21 +82,24 @@ LIMIT 10
 
 ----
 * artist info
-
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX dc: <http://purl.org/dc/elements/1.1/> 
 PREFIX mo: <http://purl.org/ontology/mo/>
-
-select ?artist_gid ?type ?gender ?url
+prefix lkb: <http://linkedbrainz.org/>
+construct {
+ lkb:Manowar a ?type;
+ foaf:isPrimaryTopicOf ?url;
+ foaf:gender ?gender.
+}
 where {
   ?artist_gid foaf:name 'Manowar';
   rdf:type ?type.
   ?artist_gid foaf:isPrimaryTopicOf ?url.
   OPTIONAL {?artist_gid foaf:gender ?gender .}.
-}    
-
+  FILTER (?type != <http://purl.org/ontology/mo/MusicArtist>)
+}  
 ----
 group groupe [[Membre]]
 

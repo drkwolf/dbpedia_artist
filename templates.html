@@ -1,4 +1,214 @@
 <!-- # Visualizer Tempaltes -->
-<script id="artistRelease" type="text/uduvudu-template">
-  <p> <%-artistRelease.title.u%> <%-artistRelease.date.u%> </p>
+<script id="artistname" type="text/uduvudu-template">
+  <h1> <%- artistname.u %> </h1>
+</script>
+
+
+<script id="thumbnail" type="text/uduvudu-template">
+  <div class="row">
+     <div class="col-md-12">
+    <img style="margin:15px;" class="pull-right img-thumbnail" src="<%- thumbnail.u %>">
+</script>
+
+<script id="abstract" type="text/uduvudu-template">
+    <p style="text-align: justify;line-height: 1.9em;"> <%- abstract.u %> </p>
+  </div>
+  </div>
+</script>
+
+
+<script id="release" type="text/uduvudu-template">
+  <tr>
+  <td> <a onClick="loadQ3(event,this)" link="<%= release.link.u %>"> <%- release.title.u %> </a> </td>
+    <td> <%- release.date.u %> </td>
+    <td><%- release.place.u %> </td>
+</tr>
+</script>
+
+<script id="artistInfo" type="text/uduvudu-template">
+<div>
+  <p>hello </p>
+  <%= artistInfo.label.u %> 
+  <%= artistInfo.ArtistWiki.u %> 
+  <%= artistInfo.ArtistType.u %> 
+</div>
+</script>
+
+<script id="seeAlso" type="text/uduvudu-template">
+  <div class="panel">
+  <div class="panel-body">
+    
+  <p> 
+  <b>External Link</b> : <a href="<%= seeAlso.seeAlso.u %>"> 	<%= seeAlso.seeAlso.u %> </a>
+  </p>
+	<h3> Comment </h3>
+    <p> <%- seeAlso.comment.u %> </p>
+  </div>
+</div>
+</script>
+
+
+<script id="artist" type="text/uduvudu-template">
+<tr>
+  <td> <a href="#/<%- artist.name.u %>"> <%- artist.name.u %> </a> </td>
+  <td> <%- artist.gender.u %> </td>
+</tr>
+</script>
+
+<script id="track" type="text/uduvudu-template">
+<tr>
+  <td> <a href=""> <%- track.title.u %> </a> </td>
+  <td role="duration"> <%- track.duration.u %> </td>
+</tr>
+</script>
+
+
+<script id="result" type="text/uduvudu-template">
+<tr>
+  <td> <a href="#<%- result.name.u %>"> <%- result.name.u %> </a> </td>
+</tr>
+</script>
+
+
+<script id="resultsLink" type="text/uduvudu-template">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>members</h3>
+  </div>
+  <div class="panel-body">
+  <table class="table table-bordered">
+    <tr>
+      <th>name </th>
+      <th>gender </th>
+    </tr>
+    <tbody>
+    <% _.each(resultsLink, function(i){ print(template(i.result))}); %>
+    </tbody>
+  </table>
+  </div>
+</div>
+</script>
+
+
+<script id="membersLink" type="text/uduvudu-template">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>members</h3>
+  </div>
+  <div class="panel-body">
+  <table class="table table-bordered">
+    <tr>
+      <th>name </th>
+      <th>gender </th>
+    </tr>
+    <tbody>
+      <% _.each(membersLink, function(i){ print(template(i.artist))}); %>
+    </tbody>
+  </table>
+  </div>
+</div>
+</script>
+
+<script id="tracksLink" type="text/uduvudu-template">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Tracks</h3>
+  </div>
+  <div id="releases" class="panel-body">
+  <table class="table table-bordered">
+    <tr>
+      <th>title </th>
+      <th>duration </th>
+    </tr>
+    <tbody>
+      <% _.each(tracksLink, function(i){ print(template(i.track))}); %>
+    </tbody>
+  </table>
+  </div>
+</div>
+</script>
+
+
+<script id="releaseLink" type="text/uduvudu-template">
+<div class="panel panel-default">
+  <div id="releases" class="panel-body">
+  <table class="table table-bordered">
+    <tr>
+      <th>title </th>
+      <th>date </th>
+      <th>place </th>
+    </tr>
+    <tbody>
+      <% _.each(releaseLink, function(i){ print(template(i.release))}); %>
+    </tbody>
+  </table>
+  </div>
+</div>
+</script>
+
+
+</script>
+
+
+
+<script id="date" type="text/uduvudu-template">
+    <td> <%- date.u %> </td>
+</script>
+<script id="label" type="text/uduvudu-template">
+    <td> <%- label.u %> </td>
+</script>
+<script id="gender" type="text/uduvudu-template">
+  <p> <strong>Gender</strong> : <%- gender.u %> </p>
+</script>
+<script id="name" type="text/uduvudu-template">
+  <p> name: <%- name.u %> </p>
+</script>
+
+<script id="place" type="text/uduvudu-template">
+  <td> <%- place.u %> </td>
+</script>
+<script id="title" type="text/uduvudu-template">
+  <td> <%- title.u %> </td>
+</script>
+
+
+
+<!-- container for literals -->
+<script id="literals" type="text/uduvudu-template">
+<div class="panel-group" role="tablist">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+      <h4 class="panel-title"> <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1"> Other Literals</a> </h4>
+    </div>
+    <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
+      <ul class="list-group">
+        <% _.each(literals, function(e) {print('<li class="list-group-item">'+template(e.literal))+'</li>'}); %>
+      </ul>
+      <div class="panel-footer"></div>
+    </div>
+  </div>
+</div>
+</script>
+
+<!-- literal -->
+<script id="literal" type="text/uduvudu-template">
+    <b><%-literal.name.u%></b>: <%-literal.text.u%>
+</script>
+
+<!-- container for literals -->
+<script id="unknowns" type="text/uduvudu-template">
+    <div style="clear: both;">
+        <% /*_.each(unknowns, function(e) {print(template(e.unknown))});*/ %>
+    </div>
+</script>
+
+<!-- unknown -->
+<script id="unknown" type="text/uduvudu-template">
+  <div style=" width: 140px; height: 140px; float: left; overflow: hidden;">
+      <small><p><%=unknown.subject.u%><br />&#9608;<br /><%=unknown.predicate.u%><br />&#9608;<br /><%=unknown.object.u%></p></small>
+  </div>
+</script>
+
+<!-- void -->
+<script id="void" type="text/uduvudu-template">
 </script>

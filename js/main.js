@@ -1,13 +1,21 @@
 /**
- * @type {String} : endpoint url
+ * @type {String}
  */
 var endPointUrl = 'https://dbpedia.org/sparql';
 
 /**
- * @type {String} :  graph uri
+ *
+ * @type {string}
  */
 var uri         = 'http://dbpedia.org';
 
+
+/**
+ * get hints for type ahead from loopkup.dbpedia.org
+ * @param q
+ * @param syncResults
+ * @param asyncResults
+ */
 var getArtistHint = function(q, syncResults, asyncResults) {
     $.ajax(
       "http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=artist&QueryLang=en&MaxHits=15&QueryString="+q,

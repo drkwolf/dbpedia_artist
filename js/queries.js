@@ -1,24 +1,43 @@
+/**
+ * sparql prefixes
+ * @type {string}
+ */
 var prefixes =`
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dbpedia: <http://dbpedia.org/resource/>
-PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
 `;
+
+/**
+ * query for
+ * @type {string}
+ */
 var query = prefixes +`
 construct {
-?artist a dbpedia-owl:Artist;
- dbpedia-owl:abstract ?abstract;
-      dbpedia-owl:thumbnail ?thumbnail;
-rdfs:comment ?comment.   
+?artist a dbo:Artist;
+ dbo:abstract ?abstract;
+      dbo:thumbnail ?thumbnail;
+         dbo:album ?album;
+          dbo:musicalBand ?band;
+    rdfs:comment ?comment.   
 }
   WHERE {
-    ?artist a dbpedia-owl:Artist .
+    ?artist a dbo:Artist .
     ?artist rdfs:label "{artist}"@en .
-    ?artist dbpedia-owl:abstract ?abstract.
+    ?artist dbo:abstract ?abstract.
 Optional{
-        ?artist dbpedia-owl:thumbnail ?thumbnail.
+        ?artist dbo:thumbnail ?thumbnail.
+    }
+    Optional{
         ?artist rdfs:comment ?comment.
     }
+Optional {
+        ?artist dbo:album ?album.
+        ?artist  dbo:musicalBand ?band.
+}
+Optional {
+        ?artist  dbo:musicalBand ?band.
+}
    FILTER (langMatches(lang(?abstract),"en"))
 } Limit 1
-
 `;

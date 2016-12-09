@@ -136,7 +136,6 @@ function loadArtist(name, query, elem, service) {
   var store = new rdf.LdpStore();
   // format query
   query = query.replace(/{artist}/g, decodeURIComponent(name));
-  query = query.replace(/{artist_reg}/g, decodeURIComponent(name));
 
   // get sparql url request 
   var request = get_request(query, service);

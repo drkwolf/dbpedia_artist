@@ -27,44 +27,6 @@ Optional{
         ?artist rdfs:comment ?comment.
     }
    FILTER (langMatches(lang(?abstract),"en"))
-} 
+} Limit 1
+
 `;
-var q1 = prefixes +`
-construct {
-  lkb:_ArtistName a mo:MusicArtist;
-      lkb:artistName '{artist}';
-      lkb:ArtistType ?type;
-      foaf:isPrimaryTopicOf ?url;
-      foaf:gender ?gender;
-      dbpedia-owl:abstract ?abstract ;
-      dbpedia-owl:thumbnail ?thumbnail;
-      lkb:members ?members.
-     
-  ?members a lkb:members;
-    foaf:name ?name;
-    foaf:gender ?m_gender.
-}
-where {
-  ?artist_gid foaf:name '{artist}';
-  rdf:type ?type.
-  OPTIONAL {?artist_gid foaf:gender ?gender .}.
-  OPTIONAL {
-	  ?artist_gid foaf:isPrimaryTopicOf ?url.
-  SERVICE <http://dbpedia.org/sparql> {
-         ?dbpedia_url foaf:isPrimaryTopicOf  ?url;
-         dbpedia-owl:abstract ?abstract ;
-        dbpedia-owl:thumbnail ?thumbnail .
-
-   FILTER (langMatches(lang(?abstract),"en"))
-  }
-}
-  OPTIONAL {
-  ?members mo:member_of ?artist_gid;
-    foaf:name ?name;
-    foaf:gender ?m_gender.
-  }
-
- FILTER (?type != <http://purl.org/ontology/mo/MusicArtist>)
-}
-`;
-

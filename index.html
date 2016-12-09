@@ -35,7 +35,7 @@
     <div id="tab_container" class="container">
       <ul class="nav nav-tabs">
         <li class="active">
-          <a href="#q1" data-tab="q1" data-toggle="tab">Overview</a>
+          <a href="#q1" data-tab="q1" data-toggle="tab">Abstract</a>
         </li>
       </ul>
       <div id="main"></div>
@@ -100,7 +100,13 @@
         console.log('Selection: ');
         console.log(suggestion.label);
         loadArtist(suggestion.label, query, $('#q1'))
+      }).on('keydown', function (event) {
+        if (event.which === 13) {
+          val = $('#identifier-search').val()
+          loadArtist(val, query, $('#q1'))
+        }
       });
+
       $('.tt-hint').addClass('form-control');
       //  $('#chooser .typeahead').on('typeahead:selected', function (event, d) {
       //    var uri = d.uri;
@@ -125,14 +131,6 @@ console.log('Loading artist:' + selected);
         event.preventDefault();
       });
 
-      $('[data-tab]').on('click', function (e) {
-        var identifier = location.hash.slice(2);
-        var query = $(this).data('tab');
-        service = true;
-        if (query == "q1") serivce = false;
-        $(this).addClass('active').siblings('[data-tab]').removeClass('active');
-        loadArtist(identifier, eval(query), $('#'+query), service);
-      });
     });
   </script>
 </body>

@@ -85,51 +85,36 @@
   <script> 
 
     $(document).ready(function () {
+        $('#identifier-search').typeahead({
+                hint: true,
+                autoselect: true,
+                highlight: true,
+                minLength: 2
+            },
+            {
+                name: 'dbpedia',
+                source: getArtistHint,
+                display: 'label',
+            }).bind('typeahead:select', function(ev, suggestion) {
 
-      $('#identifier-search').typeahead({
-        hint: true,
-        autoselect: true,
-        highlight: true,
-        minLength: 2
-      },
-      {
-        name: 'dbpedia',
-        source: getArtistHint,
-        display: 'label',
-      }).bind('typeahead:select', function(ev, suggestion) {
-        console.log('Selection: ');
-        console.log(suggestion.label);
-        loadArtist(suggestion.label, query, $('#q1'))
-      }).on('keydown', function (event) {
-        if (event.which === 13) {
-          val = $('#identifier-search').val()
-          loadArtist(val, query, $('#q1'))
-        }
-      });
+            document.location = '#/' + suggestion.label;
+            console.log(suggestion)
+            loadArtist(suggestion.label, query, $('#q1'))
+        }).on('keydown', function (event) {
+            if (event.which === 13) {
+                val = $('#identifier-search').val()
+                loadArtist(val, query, $('#q1'))
+            }
+        });
 
-      $('.tt-hint').addClass('form-control');
-      //  $('#chooser .typeahead').on('typeahead:selected', function (event, d) {
-      //    var uri = d.uri;
-      //  //  loadFromSource(uri, d.uri);
-      //  console.log(uri)
-      //  console.log(d.uri)
-      //  }); 
+        $('.tt-hint').addClass('form-control');
 
-      //  $(window).on('hashchange', hashUrlHandler);
-      //  $(document).ready(hashUrlHandler);
+        $(window).on('hashchange', hashUrlHandler);
+        $(document).ready(hashUrlHandler);
 
-      /*
-         $('#identifier-search').typeahead({
-source: artists,
-updater: function(selected) {
-document.location = '#/' + selected;
-console.log('Loading artist:' + selected);
-}
-});
-       */
-      $('form').submit(function(event) {
-        event.preventDefault();
-      });
+        $('form').submit(function(event) {
+            event.preventDefault();
+        });
 
     });
   </script>

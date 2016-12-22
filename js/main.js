@@ -45,7 +45,7 @@ function reset_page() {
  */
 function hashUrlHandler() {
   if (location.hash) {
-      var identifier =decodeURIComponent( location.hash.slice(2));
+      var identifier =decodeURIComponent( location.hash.slice(1));
       console.log(identifier);
       loadArtist(identifier, query, $('#q1'), false);
       //$('#q1').addClass('active').siblings('[data-tab]').removeClass('active');

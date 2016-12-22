@@ -25,7 +25,7 @@
             <label class="control-label">Demo - For  <a href="http://dbpedia.org/" target="_blank">Dbpedia</a> with <a href="#" target="_blank">Uduvudu</a></label>
             <div class="input-group">
               <span class="input-group-addon">http://dbpedia.org</span>
-              <input id="identifier-search" type="text" class="form-control" autofocus>
+              <input id="identifier-search" type="text" placeholder="Artist Name" class="form-control" autofocus autocomplete="off">
               <span class="input-group-addon"> <i class="glyphicon glyphicon-search"> </i> </span>
             </div>
           </div>
@@ -97,7 +97,7 @@
                 display: 'label',
             }).bind('typeahead:select', function(ev, suggestion) {
 
-            document.location = '#/' + suggestion.label;
+            document.location = '#' + suggestion.label;
             console.log(suggestion)
             loadArtist(suggestion.label, query, $('#q1'))
         }).on('keydown', function (event) {

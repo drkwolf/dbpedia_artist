@@ -76,13 +76,14 @@ var predicateMatchers = [{
   templateVariable: "seeAlso",
   abstractTemplate: "seeAlso",
   order: 90000
-},{
-  matcherName: "comment",
-  predicate: "http://www.w3.org/2000/01/rdf-schema#comment",
-  templateVariable: "comment",
-  abstractTemplate: "comment",
-  order: 90000
-},
+}
+// ,{
+//   matcherName: "comment",
+//   predicate: "http://www.w3.org/2000/01/rdf-schema#comment",
+//   templateVariable: "comment",
+//   abstractTemplate: "comment",
+//   order: 90000
+// },
 
 ];
 
